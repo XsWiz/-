@@ -1,4 +1,4 @@
-import './assets/main.css'
+// import './assets/main.css'   静态资源样式 样式重置
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
