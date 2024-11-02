@@ -1,22 +1,32 @@
+// createRouter：创建router实例对象
+// createWebHistory：创建history模式的路由
+import Login from '@/views/Login/frist-index.vue'
+import Layout from '@/views/Layout/frist-index.vue'
+import Home from '@/views/Home/frist-index.vue'
+import Category from '@/views/Category/frist-index.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  // path和component对应关系的位置
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      component: Layout,
+      children: [
+        {
+          path: '',
+          component:Home
+        },
+        {
+          path: 'category',
+          component:Category
+        }
+      ]
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+  {
+    path: '/login',
+    component: Login,
+  }
   ]
 })
 

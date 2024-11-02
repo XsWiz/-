@@ -1,25 +1,12 @@
 <script setup>
-// import { RouterLink, RouterView } from 'vue-router'
-/* @/只做联想提示 */
-// import HelloWorld from '@/components/HelloWorld.vue'
+
 </script>
 
 <template>
-  <el-button type="primary">Primary</el-button>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <!-- 一级路由 -->
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView /> -->
+     <router-view></router-view>
+   
 </template>
 
 <style scoped>

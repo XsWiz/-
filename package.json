@@ -25,5 +25,8 @@
     "unplugin-auto-import": "^0.18.3",
     "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.10"
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off"
   }
 }
