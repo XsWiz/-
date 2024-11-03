@@ -1,46 +1,14 @@
 <script setup>
-import {getTopCategoryAPI} from '@/apis/category'
-import { useRoute } from 'vue-router';
-import {  onMounted, ref } from 'vue';
-
-// 获取数据
- const categoryData = ref({})
-  const route = useRoute()
-  const getCategory = async (id=route.params.id) => {
-    const res = await getTopCategoryAPI(id)
-    categoryData.value = res.result
-  }
-  onMounted(()=>{
-    getCategory()
-  })
-
-
-// 轮播图的依赖  从bannaer粘过来
-import { getBannerAPI } from '@/apis/home'
-const bannerList=ref([])
-const getBanner=async ()=>{
-  const res=await getBannerAPI()
-  console.log(res)
- bannerList.value=res.result
-}
-onMounted(()=>{
-  getBanner()
-})
-
+// banner进行导入
+import {useBanner} from './composables/useBanner'
+const {bannerList}=useBanner()
 
 // goodsitem引入
 import GoodsItem from '../Home/components/GoodsItem.vue';
 
-
-
-
-// 目标:路由参数变化的时候 可以把分类数据接口重新发送
-import { onBeforeRouteUpdate } from 'vue-router';
-onBeforeRouteUpdate((to) => {
-    // 存在问题：使用最新的路由参数请求最新的分类数据
-    console.log(to)
-    getCategory(to.params.id)
-  })
+// 分类导入
+import { useCategory } from './composables/useCategory';
+const {categoryData}=useCategory()
 </script>
 
 <template>
@@ -73,7 +41,7 @@ onBeforeRouteUpdate((to) => {
                   </li>
                 </ul>
         </div>
-        <!--  -->
+
         <div class="ref-goods" v-for="item in categoryData.children" :key="item.id">
           <div class="head">
             <h3>- {{ item.name }}-</h3>
