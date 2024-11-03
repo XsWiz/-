@@ -1,11 +1,22 @@
-//  获取轮播图请求
+//  获取轮播图请求  第一个轮播图和之后轮播图的接口参数不一样 默认为一
 import httpInstance from '@/utils/http'
 
-export function getBannerAPI() {
+export function getBannerAPI(params = {}) {
+  // 默认为1 之后为2
+  const { distributionSite = '1' } = params
   return httpInstance({
-    url: 'home/banner'
+    url: 'home/banner',
+    params: {
+      distributionSite
+    }
   })
 }
+
+
+
+
+
+
 /**
  * @description: 获取新鲜好物
  * @param {*}
