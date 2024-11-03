@@ -19,8 +19,11 @@ onMounted(() => {
    <LayoutNav />
    <LayoutHeader />
    <!-- 二级路由出口 -->
+    <!-- 给 routerv-view 添加key属性，破坏缓存    为了banner之请求一次-->
+   <!-- <router-view :key="$route.fullPath"></router-view> -->
    <router-view></router-view>
    <LayoutFooter />
 </template>
+
 
 
