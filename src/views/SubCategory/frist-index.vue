@@ -17,7 +17,7 @@ import GoodsItem from '../Home/components/GoodsItem.vue';
 import { getSubCategoryAPI } from '@/apis/category'
 const goodList = ref([])
 const reqData = ref({
-    categoryId: route.params.id ,
+     categoryId: route.params.id ,
      page: 1,
      pageSize: 20,
      sortField: 'publishTime'
@@ -35,6 +35,22 @@ const tabChange = () => {
   console.log('tab切换了', reqData.value.sortField)
    reqData.value.page = 1
   getGoodList()
+}
+// 3 无限加载
+const disabled=ref(false)
+const load = async() => {
+  console.log('到达底部打印这句话')
+  // 获取下一页数据
+  reqData.value.page++
+  const res = await getSubCategoryAPI(reqData.value)
+  // 新老数组拼接
+  // ...goodList.value 老
+  // res.result.items 新
+  goodList.value=[...goodList.value,...res.result.items]
+  // 加载完毕结束监听 elementplus
+  if (res.result.items.length === 0) {
+  disabled.value=true
+}
 }
 </script>
 
@@ -55,7 +71,7 @@ const tabChange = () => {
         <el-tab-pane label="最高人气" name="orderNum"></el-tab-pane>
         <el-tab-pane label="评论最多" name="evaluateNum"></el-tab-pane>
       </el-tabs>
-      <div class="body">
+      <div class="body" v-infinite-scroll="load" :infinite-scroll-disabled="disabled">
          <!-- 商品列表-->
         <GoodsItem v-for="good in goodList" :good="good" :key="good.id"></GoodsItem>
       </div>
