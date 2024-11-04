@@ -43,7 +43,7 @@ const {categoryData}=useCategory()
                   </li>
                 </ul>
         </div>
-
+        <!-- 这里的数据没有了 -->
         <div class="ref-goods" v-for="item in categoryData.children" :key="item.id">
           <div class="head">
             <h3>- {{ item.name }}-</h3>

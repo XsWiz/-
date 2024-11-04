@@ -4,7 +4,7 @@ import Login from '@/views/Login/frist-index.vue'
 import Layout from '@/views/Layout/frist-index.vue'
 import Home from '@/views/Home/frist-index.vue'
 import Category from '@/views/Category/frist-index.vue'
-import SubCategory from '@/views/Category/frist-index.vue'
+import SubCategory from '@/views/SubCategory/frist-index.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
