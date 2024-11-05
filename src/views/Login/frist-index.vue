@@ -31,18 +31,39 @@ const rules = {
 
 }
 // 3 获取form实例做统一校验
+// 后台获取用户数据
+/* 引入样式文件 */
+
+import { ElMessage } from 'element-plus'
+import 'element-plus/theme-chalk/el-message.css'
+import { useRouter } from 'vue-router';
+const router= useRouter()
+import { loginAPI } from '@/apis/user.js'
+
+
 const ruleFormRef = ref(null)
 const doLogin = () => {
+  const {account,password}=form.value
   // 调用方法
-  ruleFormRef.value.validate((valid) => {
+  ruleFormRef.value.validate(async(valid) => {
     // valid: 所有表单都通过校验  才为true
     console.log(valid)
     // 以valid做为判断条件 如果通过校验才执行登录逻辑
     if (valid) {
-        //
-       }
+      //
+         const res= await loginAPI({ account, password })
+      console.log(res)
+      //  1 成功  提示用户 跳转页面
+           ElMessage({type:'success',message:'登陆成功'})
+        // 2 跳转回去
+             router.replace({path:'/'})
+
+    }
+    // 3 拦截器
+
    })
 }
+
 </script>
 
 
