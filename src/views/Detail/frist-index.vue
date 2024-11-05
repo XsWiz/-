@@ -19,6 +19,9 @@ onMounted(() => {
 import DetailHot from './components/DetailHot.vue';
 // 小图切换大图
 import imgView from '@/components/imgView.vue';
+
+
+console.log(111,goods.value.mainPictures)
 </script>
 
 <template>
@@ -38,7 +41,7 @@ import imgView from '@/components/imgView.vue';
             goods.categories[0].name
           }}
           </el-breadcrumb-item>
-          <el-breadcrumb-item>抓绒保暖，毛毛虫子儿童运动鞋</el-breadcrumb-item>
+          <el-breadcrumb-item>{{ goods.name }}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
       <!-- 商品信息 -->
@@ -47,7 +50,7 @@ import imgView from '@/components/imgView.vue';
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-                <img-view></img-view>
+                <imgView :image-list="goods.mainPictures"></imgView>
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>
