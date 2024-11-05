@@ -17,6 +17,8 @@ onMounted(() => {
 })
 // 2 热榜
 import DetailHot from './components/DetailHot.vue';
+// 小图切换大图
+import imgView from '@/components/imgView.vue';
 </script>
 
 <template>
@@ -45,7 +47,7 @@ import DetailHot from './components/DetailHot.vue';
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-
+                <img-view></img-view>
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>
