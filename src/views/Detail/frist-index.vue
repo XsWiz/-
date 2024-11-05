@@ -128,8 +128,8 @@ import DetailHot from './components/DetailHot.vue';
             </div>
             <!-- 24热榜+专题推荐 -->
             <div class="goods-aside">
-             <detail-hot></detail-hot>
-             <detail-hot></detail-hot>
+             <detail-hot :hot-type="1"></detail-hot>
+             <detail-hot :hot-type="2"></detail-hot>
             </div>
           </div>
         </div>
