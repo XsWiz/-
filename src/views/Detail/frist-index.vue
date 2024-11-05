@@ -18,7 +18,7 @@ onMounted(() => {
 // 2 热榜
 import DetailHot from './components/DetailHot.vue';
 // 小图切换大图
-import imgView from '@/components/imgView.vue';
+// import ImgView from '@/components/ImgView/frist-index.vue';
 console.log(111, goods.value.mainPictures)
 // 3 sku使用
 import XtxSku from '@/components/XtxSku/index.vue'
@@ -54,7 +54,7 @@ console.log(sku)
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-                <imgView :image-list="goods.mainPictures"></imgView>
+                <XtxImgView :image-list="goods.mainPictures"></XtxImgView>
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>
