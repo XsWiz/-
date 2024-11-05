@@ -19,9 +19,13 @@ onMounted(() => {
 import DetailHot from './components/DetailHot.vue';
 // 小图切换大图
 import imgView from '@/components/imgView.vue';
+console.log(111, goods.value.mainPictures)
+// 3 sku使用
+import XtxSku from '@/components/XtxSku/index.vue'
+const skuChange = (sku) => {
+console.log(sku)
+}
 
-
-console.log(111,goods.value.mainPictures)
 </script>
 
 <template>
@@ -99,7 +103,7 @@ console.log(111,goods.value.mainPictures)
                 </dl>
               </div>
               <!-- sku组件 -->
-
+              <XtxSku :goods="goods" @change="skuChange"></XtxSku>
               <!-- 数据组件 -->
 
               <!-- 按钮组件 -->
