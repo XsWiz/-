@@ -15,4 +15,11 @@ export const useUserStore = defineStore('user', () => {
     userInfo,
     getUserInfo
   }
-})
+
+},
+  // 引入   pinia-plugin-persistedstate插件
+  {
+    persist: true,
+  }
+
+)
