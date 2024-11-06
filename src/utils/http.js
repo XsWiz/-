@@ -5,7 +5,9 @@ import 'element-plus/theme-chalk/el-message.css'
 import axios from "axios";
 // 获取pinia的token数据
 import { useUserStore } from '@/stores/user.js'
-const httpInstance=axios.create({
+import { useRouter } from 'vue-router';
+const router = useRouter()
+const httpInstance = axios.create({
   // 接口基地址
   baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
   // 接口超时时间
@@ -27,10 +29,18 @@ httpInstance.interceptors.request.use(config => {
 
 /*  axios响应式拦截器 */
 httpInstance.interceptors.response.use(res => res.data, e => {
+// 统一错误处理
   ElMessage({
     type: 'warning',
     message:e.response.data.message
   })
+  // 401 token 过期
+  const userStore = useUserStore()
+  if (e.response.status === 401) {
+    userStore.clearUserInfo()
+    router.push('/login')
+  }
+
   return Promise.reject(e)
 })
 //  暴露出去
