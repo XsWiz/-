@@ -38,8 +38,10 @@ import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
 import { useRouter } from 'vue-router';
 const router= useRouter()
-import { loginAPI } from '@/apis/user.js'
 
+// 使用pinia
+import { useUserStore } from '@/stores/user.js'
+const userStore=useUserStore()
 
 const ruleFormRef = ref(null)
 const doLogin = () => {
@@ -51,8 +53,9 @@ const doLogin = () => {
     // 以valid做为判断条件 如果通过校验才执行登录逻辑
     if (valid) {
       //
-         const res= await loginAPI({ account, password })
-      console.log(res)
+        //  const res= await loginAPI({ account, password })
+      // console.log(res)
+      await userStore.getUserInfo({account, password})
       //  1 成功  提示用户 跳转页面
            ElMessage({type:'success',message:'登陆成功'})
         // 2 跳转回去
