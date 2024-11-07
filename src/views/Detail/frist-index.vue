@@ -22,10 +22,40 @@ import DetailHot from './components/DetailHot.vue';
 console.log(111, goods.value.mainPictures)
 // 3 sku使用
 import XtxSku from '@/components/XtxSku/index.vue'
+import { ElMessage } from 'element-plus';
+let skuObj = {}
 const skuChange = (sku) => {
-console.log(sku)
-}
+  console.log(sku)
+ skuObj=sku
 
+}
+// 购物车
+const num = ref(1)
+const numChange = () => {
+  console.log(num.value)
+}
+// 加入购物车是否成功
+
+import { useCarStore } from '@/stores/Car.js'
+const carStore=useCarStore()
+const addCar = () => {
+  if (skuObj.skuId) {
+    // 触发action
+    carStore.addCar({
+      id: goods.value.id,
+      name: goods.value.name,
+      picture: goods.value.mainPictures[0],
+      price: goods.value.price,
+      count: goods.value.count,
+      skuId: skuObj.skuId,
+      attrsText: skuObj.specsText,
+     selected:true,
+   })
+  }
+  else {
+    ElMessage.warning('请选择规格')
+  }
+}
 </script>
 
 <template>
@@ -105,10 +135,11 @@ console.log(sku)
               <!-- sku组件 -->
               <XtxSku :goods="goods" @change="skuChange"></XtxSku>
               <!-- 数据组件 -->
-
+                 <el-input-number v-model="num"  @change="numChange" />
               <!-- 按钮组件 -->
+
               <div>
-                <el-button size="large" class="btn">
+                <el-button @click=addCar size="large" class="btn">
                   加入购物车
                 </el-button>
               </div>
