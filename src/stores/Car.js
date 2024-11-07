@@ -29,12 +29,19 @@ export const useCarStore=   defineStore('car', () => {
   //方法 计算属性 计算购买物品综合 总价格
   const allCount = computed(() => carList.value.reduce((a, c) => a + c.count , 0))
   const allPrice = computed(() => carList.value.reduce((a, c) => a + c.count*c.price , 0))
+  //方法 singlechacke
+  const singleCheck = (skuId,selected) => {
+    const item = carList.value.find((item) => item.skuId === skuId)
+    item.selected=selected
+  }
+  //
   return {
     carList,
     allCount,
     allPrice,
     addCar,
     delCar,
+    singleCheck
 
   }
 },

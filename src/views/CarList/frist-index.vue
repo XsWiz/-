@@ -1,6 +1,11 @@
 <script setup>
 import { useCarStore } from '@/stores/Car.js'
 const carStore=useCarStore()
+// 单选框
+const singleChang = (i,selected) => {
+  console.log('传递的是什么', i, selected)
+carStore.singleCheck(i.skuId,selected)
+}
 
 </script>
 
@@ -25,7 +30,8 @@ const carStore=useCarStore()
           <tbody>
             <tr v-for="i in  carStore.carList" :key="i.id">
               <td>
-                <el-checkbox />
+                <!-- 单选框  -->
+                <el-checkbox  :model-value="i.selected"  @change="(selected)=>singleChang(i,selected)"/>
               </td>
               <td>
                 <div class="goods">
