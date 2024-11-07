@@ -4,6 +4,8 @@
 // import { onMounted ,ref} from 'vue';
 import { useCategoryStore } from '@/stores/category'
 const categoryStore = useCategoryStore()
+// g购物车
+import HeaderCar from './HeaderCar.vue';
 
 </script>
 
@@ -26,7 +28,7 @@ const categoryStore = useCategoryStore()
         <input type="text" placeholder="搜一搜">
       </div>
       <!-- 头部购物车 -->
-
+     <HeaderCar></HeaderCar>
     </div>
   </header>
 </template>
