@@ -46,11 +46,12 @@ const addCar = () => {
       name: goods.value.name,
       picture: goods.value.mainPictures[0],
       price: goods.value.price,
-      count: goods.value.count,
+      count: num.value,
       skuId: skuObj.skuId,
       attrsText: skuObj.specsText,
      selected:true,
-   })
+    })
+
   }
   else {
     ElMessage.warning('请选择规格')

@@ -1,6 +1,7 @@
 <script setup>
 import { useCarStore } from '@/stores/Car.js'
-const carStore=useCarStore()
+const carStore = useCarStore()
+console.log('总价格',carStore.allCount)
 </script>
 
 <template>
@@ -31,8 +32,8 @@ const carStore=useCarStore()
       </div>
       <div class="foot">
         <div class="total">
-          <p>共 {{ carStore.carList.length }} 件商品</p>
-          <p>&yen; 100.00 </p>
+          <p>共 {{ carStore.allCount }} 件商品</p>
+          <p>&yen; {{carStore.allPrice.toFixed(2)  }} </p>
         </div>
         <el-button size="large" type="primary" >去购物车结算</el-button>
       </div>
