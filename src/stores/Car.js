@@ -37,9 +37,14 @@ export const useCarStore=   defineStore('car', () => {
   // 方法 是否全选
     const isAll=computed(()=>carList.value.every((item)=>item.selected))
   //方法 让所有框都选中或者不选
+
   const allCheck = (selected) => {
     carList.value.forEach(item=>item.selected=selected)
   }
+  // 方法 选中商品的价钱数量() => {
+
+  const selectedCount = computed(() => carList.value.filter(item => item.selected).reduce((a, c) => a + c.count, 0))
+  const selectedPrice = computed(() => carList.value.filter(item => item.selected).reduce((a, c) => a + c.count * c.price , 0))
   return {
     carList,
     allCount,
@@ -48,7 +53,9 @@ export const useCarStore=   defineStore('car', () => {
     delCar,
     singleCheck,
     isAll,
-    allCheck
+    allCheck,
+    selectedCount,
+    selectedPrice
   }
 },
   // 引入   pinia-plugin-persistedstate插件
