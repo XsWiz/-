@@ -40,7 +40,7 @@ import { useRouter } from 'vue-router';
 const router= useRouter()
 
 // 使用pinia
-import { useUserStore } from '@/stores/user.js'
+import { useUserStore } from '@/stores/userStores.js'
 const userStore=useUserStore()
 
 const ruleFormRef = ref(null)

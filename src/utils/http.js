@@ -4,7 +4,7 @@ import 'element-plus/theme-chalk/el-message.css'
 // axios基础封装
 import axios from "axios";
 // 获取pinia的token数据
-import { useUserStore } from '@/stores/user.js'
+import { useUserStore } from '@/stores/userStores.js'
 import { useRouter } from 'vue-router';
 const router = useRouter()
 const httpInstance = axios.create({

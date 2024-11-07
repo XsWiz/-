@@ -2,7 +2,7 @@
 // y引入vueuse
 import { useScroll } from '@vueuse/core'
 // 使用piinia的数据
-import { useCategoryStore } from '@/stores/category'
+import { useCategoryStore } from '@/stores/categoryStores'
 // 使用piinia的数据
 const { y } = useScroll(window)
 // 使用piinia的数据

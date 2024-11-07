@@ -36,7 +36,7 @@ const numChange = () => {
 }
 // 加入购物车是否成功
 
-import { useCarStore } from '@/stores/Car.js'
+import { useCarStore } from '@/stores/carStores.js'
 const carStore=useCarStore()
 const addCar = () => {
   if (skuObj.skuId) {

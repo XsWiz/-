@@ -1,5 +1,5 @@
 <script setup>
-import { useCarStore } from '@/stores/Car.js'
+import { useCarStore } from '@/stores/carStores.js'
 const carStore=useCarStore()
 // 单选框
 const singleChang = (i,selected) => {

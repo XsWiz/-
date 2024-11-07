@@ -2,28 +2,33 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { computed } from 'vue'
-import { useUserStore } from './user'
+import { useUserStore } from './userStores'
 // 接口  登陆购物车
 import { insertCartAPI } from '@/apis/car'
 import { findNewCartListApi } from '@/apis/car'
+//  删除接口
+import { delCartAPI } from '@/apis/car'
 export const useCarStore=   defineStore('car', () => {
   const userStore = useUserStore()
   const isLogin = computed(() => userStore.userInfo.token)
 
-
-
+  // 获取最新购物车信息 抽离出的公用方法
+  const updatedNewList =async () => {
+    const res = await findNewCartListApi()
+    carList.value = res.result
+  }
 
   // 数据
   const carList = ref([])
-  // 方法  添加购物车
+  // 1 方法  添加购物车
   const addCar = async (goods) => {
     const { skuId, count }=goods
     if (isLogin.value) {
       // 登录后逻辑
+        /* 添加现在的 */
       await insertCartAPI({ skuId, count })
-      //
-      const res = await findNewCartListApi()
-      carList.value=res.result
+         /* 所有的覆盖 */
+      updatedNewList()
     }
     else {
       const item = carList.value.find((item) => {
@@ -40,12 +45,20 @@ export const useCarStore=   defineStore('car', () => {
 
   }
 
-  // 方法  删除
-  const delCar = (skuId) => {
-    const idx = carList.value.findIndex((item) => {
-      skuId===item.skuId
-    })
-    carList.value.splice(idx,1)
+  // 2方法  删除
+
+  const delCar = async(skuId) => {
+    if (isLogin.value) {
+      await delCartAPI([skuId])
+      updatedNewList()
+    }
+    else {
+      const idx = carList.value.findIndex((item) => {
+        skuId === item.skuId
+      })
+      carList.value.splice(idx, 1)
+    }
+
   }
   //方法 计算属性 计算购买物品综合 总价格
   const allCount = computed(() => carList.value.reduce((a, c) => a + c.count , 0))

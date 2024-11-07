@@ -1,5 +1,5 @@
 <script setup>
-import { useCarStore } from '@/stores/Car.js'
+import { useCarStore } from '@/stores/carStores.js'
 const carStore = useCarStore()
 console.log('总价格', carStore.allCount)
 // 跳转到购物车列表页面

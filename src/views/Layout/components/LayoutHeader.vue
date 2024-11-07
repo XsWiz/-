@@ -2,7 +2,7 @@
 // 1 引入
 // import {getCategoryAPI} from '@/apis/layout.js'
 // import { onMounted ,ref} from 'vue';
-import { useCategoryStore } from '@/stores/category'
+import { useCategoryStore } from '@/stores/categoryStores'
 const categoryStore = useCategoryStore()
 // g购物车
 import HeaderCar from './HeaderCar.vue';
