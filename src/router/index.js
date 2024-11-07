@@ -6,6 +6,7 @@ import Home from '@/views/Home/frist-index.vue'
 import Category from '@/views/Category/frist-index.vue'
 import SubCategory from '@/views/SubCategory/frist-index.vue'
 import Detail from '@/views/Detail/frist-index.vue'
+import CarList from '@/views/CarList/frist-index.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -31,6 +32,10 @@ const router = createRouter({
         {
           path: 'detail/:id',
           component: Detail
+        },
+        {
+          path: 'cartlist',
+          component: CarList
         }
 
       ]

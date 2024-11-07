@@ -1,7 +1,10 @@
 <script setup>
 import { useCarStore } from '@/stores/Car.js'
 const carStore = useCarStore()
-console.log('总价格',carStore.allCount)
+console.log('总价格', carStore.allCount)
+// 跳转到购物车列表页面
+import { useRouter } from 'vue-router';
+const router=useRouter()
 </script>
 
 <template>
@@ -35,7 +38,7 @@ console.log('总价格',carStore.allCount)
           <p>共 {{ carStore.allCount }} 件商品</p>
           <p>&yen; {{carStore.allPrice.toFixed(2)  }} </p>
         </div>
-        <el-button size="large" type="primary" >去购物车结算</el-button>
+        <el-button size="large" type="primary" @click=" router.push('/cartlist')">去购物车结算</el-button>
       </div>
     </div>
 </div>
