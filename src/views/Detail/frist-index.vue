@@ -19,7 +19,7 @@ onMounted(() => {
 import DetailHot from './components/DetailHot.vue';
 // 小图切换大图
 // import ImgView from '@/components/ImgView/frist-index.vue';
-console.log(111, goods.value.mainPictures)
+console.log('主图', goods.value.mainPictures)
 // 3 sku使用
 import XtxSku from '@/components/XtxSku/index.vue'
 import { ElMessage } from 'element-plus';
@@ -84,7 +84,7 @@ const addCar = () => {
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-                <XtxImgView :image-list="goods.mainPictures"></XtxImgView>
+                <XtxImgView :imageList="goods.mainPictures"></XtxImgView>
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>

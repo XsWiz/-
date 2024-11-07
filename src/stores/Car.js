@@ -16,10 +16,18 @@ export const useCarStore=   defineStore('car', () => {
       carList.value.push(goods)
     }
   }
+  // 方法  删除
+  const delCar = (skuId) => {
+    const idx = carList.value.findIndex((item) => {
+      skuId===item.skuId
+    })
+    carList.value.splice(idx,1)
+  }
   //
   return {
     carList,
-    addCar
+    addCar,
+    delCar
   }
 },
   // 引入   pinia-plugin-persistedstate插件

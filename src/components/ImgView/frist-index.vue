@@ -9,7 +9,7 @@ const imageList =defineProps({
   }
 })
 
-console.log(imageList)
+console.log('图片',imageList)
 const activeIndex=ref(0)
 const enterimg = (i) => {
   console.log(i)

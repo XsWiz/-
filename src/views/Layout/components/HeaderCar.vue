@@ -25,7 +25,7 @@ const carStore=useCarStore()
               <p class="count">x{{ i.count }}</p>
             </div>
           </RouterLink>
-          <i class="iconfont icon-close-new" @click="store.delCart(i.skuId)"></i>
+          <i class="iconfont icon-close-new" @click="carStore. delCar(i.skuId)"></i>
         </div>
 
       </div>

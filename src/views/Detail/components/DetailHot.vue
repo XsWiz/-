@@ -1,9 +1,5 @@
 <script setup>
 
-
-
-
-
 // 24小时热榜为例
 import {getHotGoodsAPI} from '@/apis/detail'
 import { ref,onMounted } from 'vue';
