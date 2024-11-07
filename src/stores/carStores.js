@@ -60,6 +60,10 @@ export const useCarStore=   defineStore('car', () => {
     }
 
   }
+  // 4方法  清楚购物车
+  const clearCar = () => {
+    carList.value=[]
+  }
   //方法 计算属性 计算购买物品综合 总价格
   const allCount = computed(() => carList.value.reduce((a, c) => a + c.count , 0))
   const allPrice = computed(() => carList.value.reduce((a, c) => a + c.count*c.price , 0))
@@ -89,7 +93,8 @@ export const useCarStore=   defineStore('car', () => {
     isAll,
     allCheck,
     selectedCount,
-    selectedPrice
+    selectedPrice,
+    clearCar
   }
 },
   // 引入   pinia-plugin-persistedstate插件
