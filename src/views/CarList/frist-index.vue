@@ -6,7 +6,9 @@ const singleChang = (i,selected) => {
   console.log('传递的是什么', i, selected)
 carStore.singleCheck(i.skuId,selected)
 }
-
+const allCheck = (slected) => {
+  carStore. allCheck(slected)
+}
 </script>
 
 <template>
@@ -17,7 +19,7 @@ carStore.singleCheck(i.skuId,selected)
           <thead>
             <tr>
               <th width="120">
-                <el-checkbox/>
+                <el-checkbox :model-value="carStore.isAll" @change="allCheck"/>
               </th>
               <th width="400">商品信息</th>
               <th width="220">单价</th>

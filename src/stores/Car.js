@@ -34,15 +34,21 @@ export const useCarStore=   defineStore('car', () => {
     const item = carList.value.find((item) => item.skuId === skuId)
     item.selected=selected
   }
-  //
+  // 方法 是否全选
+    const isAll=computed(()=>carList.value.every((item)=>item.selected))
+  //方法 让所有框都选中或者不选
+  const allCheck = (selected) => {
+    carList.value.forEach(item=>item.selected=selected)
+  }
   return {
     carList,
     allCount,
     allPrice,
     addCar,
     delCar,
-    singleCheck
-
+    singleCheck,
+    isAll,
+    allCheck
   }
 },
   // 引入   pinia-plugin-persistedstate插件
