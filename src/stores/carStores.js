@@ -94,7 +94,9 @@ export const useCarStore=   defineStore('car', () => {
     allCheck,
     selectedCount,
     selectedPrice,
-    clearCar
+    clearCar,
+    updatedNewList
+
   }
 },
   // 引入   pinia-plugin-persistedstate插件

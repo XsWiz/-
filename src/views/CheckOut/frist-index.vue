@@ -26,6 +26,38 @@ const confirm = () => {
   curAddress.value = activeAddress.value
   showDiaLog.value=false
 }
+// 跳转支付页面
+import { createOrderAPI } from '@/apis/pay.js'
+import { useRouter } from 'vue-router';
+import { useCarStore } from '@/stores/carStores.js'
+const carStores=useCarStore()
+const router=useRouter()
+const createOrder = async () => {
+      const res = await createOrderAPI({
+    deliveryTimeType: 1,
+    payType: 1,
+    payChannel: 1,
+    buyerMessage: '',
+    goods: checkInfo.value.goods.map(item => {
+      return {
+        skuId: item.skuId,
+        count: item.count
+      }
+    }),
+    addressId: curAddress.value.id
+  })
+  const orderId = res.result.id
+  router.push({
+    path: '/pay',
+    query: {
+      id: orderId
+    }
+  })
+  /*  */
+  carStores.updatedNewList()
+}
+
+
 </script>
 
 <template>
@@ -75,7 +107,7 @@ const confirm = () => {
                   </a>
                 </td>
                 <td>&yen;{{ i.price }}</td>
-                <td>{{ i.price }}</td>
+                <td>{{ i.count }}</td>
                 <td>&yen;{{ i.totalPrice }}</td>
                 <td>&yen;{{ i.totalPayPrice }}</td>
               </tr>
@@ -120,7 +152,7 @@ const confirm = () => {
         </div>
         <!-- 提交订单 -->
         <div class="submit">
-          <el-button type="primary" size="large" >提交订单</el-button>
+          <el-button type="primary" size="large" @click="createOrder">提交订单</el-button>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import SubCategory from '@/views/SubCategory/frist-index.vue'
 import Detail from '@/views/Detail/frist-index.vue'
 import CarList from '@/views/CarList/frist-index.vue'
 import CheckOut from '@/views/CheckOut/frist-index.vue'
+import Pay from '@/views/Pay/frist-index.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -42,7 +43,10 @@ const router = createRouter({
           path: 'checkout',
           component: CheckOut
         },
-
+        {
+          path: 'pay',
+          component: Pay
+        },
 
       ]
     },
