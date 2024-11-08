@@ -1,9 +1,7 @@
 import request from '@/utils/http'
-// 创建订单
-export const createOrderAPI = (data) => {
+
+export const getOrderAPI = (id) => {
   return request({
-    url: '/member/order',
-    method: 'POST',
-    data
+    url: `/member/order/${id}`
   })
 }

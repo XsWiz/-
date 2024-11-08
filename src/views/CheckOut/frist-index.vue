@@ -27,7 +27,7 @@ const confirm = () => {
   showDiaLog.value=false
 }
 // 跳转支付页面
-import { createOrderAPI } from '@/apis/pay.js'
+import { createOrderAPI } from '@/apis/checkout.js'
 import { useRouter } from 'vue-router';
 import { useCarStore } from '@/stores/carStores.js'
 const carStores=useCarStore()
