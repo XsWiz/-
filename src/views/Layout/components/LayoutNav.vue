@@ -12,7 +12,7 @@ const confirmEvent = () => {
   // 2 跳转到首页
   router.push('/login')
 }
-import Member from '@/views/Member/frist-index.vue'
+// import Member from '@/views/Member/frist-index.vue'
 </script>
 
 <template>
