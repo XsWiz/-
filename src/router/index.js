@@ -9,6 +9,7 @@ import Detail from '@/views/Detail/frist-index.vue'
 import CarList from '@/views/CarList/frist-index.vue'
 import CheckOut from '@/views/CheckOut/frist-index.vue'
 import Pay from '@/views/Pay/frist-index.vue'
+import PayBack from '@/views/Pay/PayBack.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -47,7 +48,10 @@ const router = createRouter({
           path: 'pay',
           component: Pay
         },
-
+        {
+          path: 'paycallback',
+          component: PayBack
+        },
       ]
     },
   {
