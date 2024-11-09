@@ -12,6 +12,7 @@ const confirmEvent = () => {
   // 2 跳转到首页
   router.push('/login')
 }
+import Member from '@/views/Member/frist-index.vue'
 </script>
 
 <template>
@@ -29,7 +30,7 @@ const confirmEvent = () => {
             </el-popconfirm>
           </li>
           <li><a href="javascript:;">我的订单</a></li>
-          <li><a href="javascript:;">会员中心</a></li>
+          <li><a href="javascript:;"  @click="router.push('/member')">会员中心</a></li>
         </template>
        <!-- 是否有token -->
         <template v-else>
