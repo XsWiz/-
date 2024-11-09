@@ -10,7 +10,22 @@ const tabTypes = [
   { name: "cancel", label: "已取消" }
 ]
 // 订单列表
-const orderList = []
+import { getUserOrder } from '@/apis/order.js'
+import { onMounted, ref } from 'vue';
+const orderList = ref([])
+const params=ref({
+  orderState:0,
+  page:1,
+  pageSize:2
+})
+const getOrderList = async() => {
+  const res = await getUserOrder(params.value)
+   orderList.value=res.result.items
+}
+onMounted(() => {
+  getOrderList()
+})
+
 
 </script>
 
