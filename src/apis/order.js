@@ -1,7 +1,7 @@
 /*
 params: {
-  orderState:0,
-  page:1,
+  orderState:0,   tab切换
+  page:1,          分页器
   pageSize:2
 }
 */
