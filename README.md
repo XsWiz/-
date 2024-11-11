@@ -1,6 +1,13 @@
 # vue-shop
 
-This template should help get you started developing with Vue 3 in Vite.
+如何运行商城项目
+这是一个vue3全家桶开发的网上购物商城系统，主要包括
+1.SKU电商组件进行封装
+2.封装图片懒加载指令，
+3.长页面吸顶交互实现
+4.通用逻辑函 数封装
+5.路由缓存问题处理
+6.Pinia全局管理数据
 
 ## Recommended IDE Setup
 
