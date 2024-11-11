@@ -5,6 +5,8 @@ console.log('总价格', carStore.allCount)
 // 跳转到购物车列表页面
 import { useRouter } from 'vue-router';
 const router=useRouter()
+// jjj
+
 </script>
 
 <template>
